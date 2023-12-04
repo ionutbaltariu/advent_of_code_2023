@@ -18,7 +18,6 @@ def alter_adj_table(matrix, line, number_span):
     """
     # encode x_y_s
 
-    all_adj_elements = []
     column_number = len(matrix[0])
     line_number = len(matrix)
     number_start, number_end = number_span
