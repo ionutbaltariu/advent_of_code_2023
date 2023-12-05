@@ -2,3 +2,4 @@
 *.pyc
 *.pyi
 __pycache__
+*.in
