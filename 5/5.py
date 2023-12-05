@@ -13,7 +13,9 @@ humidity_to_location_rgx = re.compile(r"humidity-to-location map:([\d+ \n]+)")
 
 class NumberTranslator:
     def __init__(self, translations: List[tuple]):
-        self.translations = sorted(translations, key=lambda x: x[1] + x[2])
+        # sorting the translations allows to find the
+
+        self.translations = translations
 
     def get(self, val):
         for translation in self.translations:
@@ -84,10 +86,15 @@ if __name__ == "__main__":
 
     print(f"Part one solution: {min(locations)}")
 
+    # biggest integer on 64 bits
+    locations_min = 18446744073709551615
+
+    import time
+    start = time.time()
+
     # part two
     # brute force takes some minutes using PyPy
     # gotta think of something better
-    locations_min = 18446744073709551615
     for i in range(0, len(seeds), 2):
         for j in range(seeds[i + 1]):
             location = map_from_seed_to_location(seeds[i] + j, maps)
@@ -95,4 +102,5 @@ if __name__ == "__main__":
             # print(f"Seed {seeds[i] + j} was mapped to {location}")
             locations_min = min(locations_min, location)
 
+    print(f"It took {time.time() - start} seconds.")
     print(f"Part two solution: {locations_min}")
