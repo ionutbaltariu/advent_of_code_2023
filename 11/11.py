@@ -67,7 +67,7 @@ def get_matrix_and_lines_and_columns_without_sharp(file):
 
 
 def solve():
-    f = open("10.in", "r")
+    f = open("11.in", "r")
     matrix, lines_without_sharp, columns_without_sharp = get_matrix_and_lines_and_columns_without_sharp(f)
     print(f"Part one: {get_sum_of_shortest_paths(matrix, lines_without_sharp, columns_without_sharp)}")
     print(f"Part two: {get_sum_of_shortest_paths(matrix, lines_without_sharp, columns_without_sharp, PART_TWO_MULTIPLIER)}")
